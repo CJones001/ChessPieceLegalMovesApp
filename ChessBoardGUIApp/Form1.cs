@@ -35,12 +35,17 @@ namespace ChessBoardGUIApp
                     pnlChessBoard.Controls.Add(btnGrid[r, c]); // Place the button on the Panel
                     btnGrid[r, c].Location = new Point(buttonSize * r, buttonSize * c); // Position it in x, y
 
-                    // For testing purposes
-                    // Remove Later
-                    btnGrid[r, c].Text = r.ToString() + "|" + c.ToString();
-
                     // The Tag attribute will hold the row and column number in a string
                     btnGrid[r, c].Tag = r.ToString() + "|" + c.ToString();
+                }
+            }
+
+            // Set the default color of the grid 
+            for (int i = 0; i < myBoard.Size; i++)
+            {
+                for (int j = 0; j < myBoard.Size; j++)
+                {
+                    btnGrid[i, j].BackColor = default(Color);
                 }
             }
         }
@@ -54,8 +59,9 @@ namespace ChessBoardGUIApp
 
             // Run a helper function to lblDescription all legal moves for this piece
             Cell currentCell = myBoard.theGrid[r, c];
-            myBoard.MarkNextLegalMoves(currentCell, "Knight");
-            updateButtonLabels();
+            string piece = cmbChessPiece.Text;
+            myBoard.MarkNextLegalMoves(currentCell, piece);
+            updateButtonLabels(piece);
 
             // Reset the background color of all the buttons to the default (original) color
             for (int i = 0; i < myBoard.Size; i++)
@@ -70,18 +76,17 @@ namespace ChessBoardGUIApp
             (sender as Button).BackColor = Color.Cornsilk;
         }
 
-        public void updateButtonLabels()
+        public void updateButtonLabels(string chessPiece)
         {
-            for (int r = 0; r < myBoard.Size;  r++)
+            for (int r = 0; r < myBoard.Size; r++)
             {
                 for (int c = 0; c < myBoard.Size; c++)
                 {
                     btnGrid[r, c].Text = "";
-                    if (myBoard.theGrid[r, c].CurrentlyOccupied) btnGrid[r, c].Text = "Knight";
+                    if (myBoard.theGrid[r, c].CurrentlyOccupied) btnGrid[r, c].Text = chessPiece;
                     if (myBoard.theGrid[r, c].LegalNextMove) btnGrid[r, c].Text = "Legal";
                 }
             }
         }
-
     }
 }

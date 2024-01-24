@@ -35,9 +35,9 @@
             // 
             // pnlChessBoard
             // 
-            pnlChessBoard.Location = new Point(62, 82);
+            pnlChessBoard.Location = new Point(91, 132);
             pnlChessBoard.Name = "pnlChessBoard";
-            pnlChessBoard.Size = new Size(500, 500);
+            pnlChessBoard.Size = new Size(600, 600);
             pnlChessBoard.TabIndex = 0;
             // 
             // cmbChessPiece
@@ -45,7 +45,7 @@
             cmbChessPiece.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbChessPiece.FormattingEnabled = true;
             cmbChessPiece.Items.AddRange(new object[] { "Bishop", "Queen", "Knight", "King", "Rook" });
-            cmbChessPiece.Location = new Point(401, 22);
+            cmbChessPiece.Location = new Point(509, 74);
             cmbChessPiece.Name = "cmbChessPiece";
             cmbChessPiece.Size = new Size(182, 33);
             cmbChessPiece.TabIndex = 1;
@@ -53,7 +53,7 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(33, 25);
+            lblDescription.Location = new Point(91, 77);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(343, 25);
             lblDescription.TabIndex = 2;
@@ -63,7 +63,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(628, 594);
+            ClientSize = new Size(778, 744);
             Controls.Add(lblDescription);
             Controls.Add(cmbChessPiece);
             Controls.Add(pnlChessBoard);

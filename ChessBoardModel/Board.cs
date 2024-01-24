@@ -43,12 +43,14 @@ namespace ChessBoardModel
                 for (int c = 0;  c < Size; c++)
                 {
                     theGrid[r, c].LegalNextMove = false;
+                    theGrid[r, c].CurrentlyOccupied = false;
                 }
             }
             switch (chessPiece)
             {
                 case "Knight":
                     #region Knight Moves
+                    theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
                     try
                     {
                         theGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber - 2].LegalNextMove = true;
@@ -94,6 +96,7 @@ namespace ChessBoardModel
 
                 case "King":
                     #region King Moves
+                    theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
                     try
                     {
                         theGrid[currentCell.RowNumber - 1, currentCell.ColumnNumber].LegalNextMove = true;
@@ -139,6 +142,7 @@ namespace ChessBoardModel
 
                 case "Rook":
                     #region Rook Moves
+                    theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
                     try
                     {
                         // Down
@@ -180,6 +184,7 @@ namespace ChessBoardModel
 
                 case "Bishop":
                     #region Bishop Moves
+                    theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
                     try
                     {
                         // Down - Right
@@ -221,6 +226,7 @@ namespace ChessBoardModel
 
                 case "Queen":
                     #region Queen Moves
+                    theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
                     try
                     {
                         // Down - Right
