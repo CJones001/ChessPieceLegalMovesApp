@@ -28,18 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pnlChessBoard = new Panel();
+            cmbChessPiece = new ComboBox();
+            lblDescription = new Label();
             SuspendLayout();
+            // 
+            // pnlChessBoard
+            // 
+            pnlChessBoard.Location = new Point(62, 82);
+            pnlChessBoard.Name = "pnlChessBoard";
+            pnlChessBoard.Size = new Size(500, 500);
+            pnlChessBoard.TabIndex = 0;
+            // 
+            // cmbChessPiece
+            // 
+            cmbChessPiece.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbChessPiece.FormattingEnabled = true;
+            cmbChessPiece.Items.AddRange(new object[] { "Bishop", "Queen", "Knight", "King", "Rook" });
+            cmbChessPiece.Location = new Point(401, 22);
+            cmbChessPiece.Name = "cmbChessPiece";
+            cmbChessPiece.Size = new Size(182, 33);
+            cmbChessPiece.TabIndex = 1;
+            // 
+            // lblDescription
+            // 
+            lblDescription.AutoSize = true;
+            lblDescription.Location = new Point(33, 25);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(343, 25);
+            lblDescription.TabIndex = 2;
+            lblDescription.Text = "Select a chess piece to place on the board";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(578, 544);
+            ClientSize = new Size(628, 594);
+            Controls.Add(lblDescription);
+            Controls.Add(cmbChessPiece);
+            Controls.Add(pnlChessBoard);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Panel pnlChessBoard;
+        private ComboBox cmbChessPiece;
+        private Label lblDescription;
     }
 }
