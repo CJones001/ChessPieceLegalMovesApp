@@ -143,162 +143,210 @@ namespace ChessBoardModel
                 case "Rook":
                     #region Rook Moves
                     theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
-                    try
+                    // Down
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.ColumnNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
                     #endregion
                     break;
 
                 case "Bishop":
                     #region Bishop Moves
                     theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
-                    try
+                    // Down - Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down - Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7 || currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Down - Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down - Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7 || currentCell.ColumnNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up - Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up - Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0 || currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up - Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up - Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0 || currentCell.ColumnNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
                     #endregion
                     break;
 
                 case "Queen":
                     #region Queen Moves
                     theGrid[currentCell.RowNumber, currentCell.ColumnNumber].CurrentlyOccupied = true;
-                    try
+                    // Down - Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down - Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7 || currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Down - Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down - Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7 || currentCell.ColumnNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up - Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up - Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0|| currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up - Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up - Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0 || currentCell.ColumnNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Down
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Down
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber + i, currentCell.ColumnNumber].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Up
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Up
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.RowNumber - i < 0)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber - i, currentCell.ColumnNumber].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Right
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Right
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.ColumnNumber + i > 7)
+                        {
+                            break;
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber, currentCell.ColumnNumber + i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
-                    try
+                    // Left
+                    for (int i = 1; i < Size; i++)
                     {
-                        // Left
-                        for (int i = 1; i < Size; i++)
+                        if (currentCell.ColumnNumber - i < 0) 
+                        {
+                            break; 
+                        }
+                        else
                         {
                             theGrid[currentCell.RowNumber, currentCell.ColumnNumber - i].LegalNextMove = true;
                         }
                     }
-                    catch (Exception) { }
                     #endregion
                     break;
 
